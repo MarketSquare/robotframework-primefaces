@@ -1,0 +1,11 @@
+# Ignore Robot Framework results
+*/Results
+log*.html
+result*.html
+output*.xml
+
+# Ignore compiled python files
+*.pyc
+
+# Ignore emacs temporary files
+*~
