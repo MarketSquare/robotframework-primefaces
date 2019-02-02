@@ -2,7 +2,7 @@ from SeleniumLibrary.locators import ElementFinder
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from robot.libraries.BuiltIn import BuiltIn
-from robot.utils import timestr_to_secs
+from robot.utils import timestr_to_secs, secs_to_timestr, type_name
 
 
 js_wait_for_primefaces = """
@@ -68,7 +68,7 @@ class PrimeFacesLibrary:
         self.enable_implicit_wait_for_primefaces(False)
 
     def get_implicit_wait_timeout(self):
-        return robot.utils.secs_to_timestr(self.timeout)
+        return secs_to_timestr(self.timeout)
 
     def set_implicit_wait_timeout(self, seconds):
         old_timeout = self.get_implicit_wait_timeout()
@@ -87,7 +87,7 @@ class PrimeFacesLibrary:
                              'to empty after specified timeout.')
 
         try:
-            WebDriverWait(self._selib._current_browser(), timeoutSEcs, 0.2)\
+            WebDriverWait(self._selib._current_browser(), timeoutSecs, 0.2)\
                 .until(lambda x: self._selib._current_browser().execute_script(js_wait_for_primefaces))
         except TimeoutException:
             if self.error_on_timeout:
