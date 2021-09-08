@@ -6,6 +6,8 @@ from robot.utils import timestr_to_secs, secs_to_timestr, type_name
 
 
 js_wait_for_primefaces = """
+    if (typeof PrimeFaces === 'undefined')
+        return true;
     return PrimeFaces.ajax.Queue.isEmpty();
 """
 
