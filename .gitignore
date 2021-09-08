@@ -1,7 +1,7 @@
 # Ignore Robot Framework results
 */Results
 log*.html
-result*.html
+report*.html
 output*.xml
 
 # Ignore compiled python files
@@ -9,3 +9,8 @@ output*.xml
 
 # Ignore emacs temporary files
 *~
+
+# Ignore python binary
+build/
+dist/
+src/robotframework_primefaces.egg-info/
