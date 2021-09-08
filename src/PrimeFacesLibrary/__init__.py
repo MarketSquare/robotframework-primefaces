@@ -22,8 +22,8 @@ class pfElementFinder(ElementFinder):
 
         if self.enable_implicit_wait:
             try:
-                WebDriverWait(self._selib._current_browser(), timeout, 0.2)\
-                    .until(lambda x: self._selib._current_browser().execute_script(js_wait_for_primefaces))
+                WebDriverWait(self._selib.driver, timeout, 0.2)\
+                    .until(lambda x: self._selib.driver.execute_script(js_wait_for_primefaces))
             except TimeoutException:
                 if self.error_on_timeout:
                     raise TimeoutException('Timed out waiting for ' +
@@ -87,8 +87,8 @@ class PrimeFacesLibrary:
                              'to empty after specified timeout.')
 
         try:
-            WebDriverWait(self._selib._current_browser(), timeoutSecs, 0.2)\
-                .until(lambda x: self._selib._current_browser().execute_script(js_wait_for_primefaces))
+            WebDriverWait(self._selib.driver, timeoutSecs, 0.2)\
+                .until(lambda x: self._selib.driver.execute_script(js_wait_for_primefaces))
         except TimeoutException:
             if self.error_on_timeout:
                 raise TimeoutException(errmsg)
