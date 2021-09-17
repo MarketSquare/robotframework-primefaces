@@ -2,29 +2,28 @@
 Library    SeleniumLibrary
 Library    PrimeFacesLibrary
 
-TestTeardown    Close All Browsers
+Test Teardown    Close All Browsers
 
 *** Test Cases ***
 Test Implicit Wait Using PF Showcase - Ajax Framework - Basic
-    Open Browser  https://www.primefaces.org/showcase/ui/ajax/basic.xhtml
-    Input Text  j_idt116:name  RF Tester
-    Click Element  j_idt116:j_idt119
-    ${DisplayText}=    Get Text  j_idt116:display
+    Open Browser  https://www.primefaces.org/showcase/ui/ajax/basic.xhtml    chrome
+    Input Text  j_idt303:name  RF Tester
+    Click Element  j_idt303:j_idt307
+    ${DisplayText}=    Get Text  j_idt303:display
     Should Be Equal  ${DisplayText}  RF Tester
 
 Test Implicit Wait Using PF Showcase - Ajax Framework - Partial Process
-    Open Browser  https://www.primefaces.org/showcase/ui/ajax/process.xhtml
-    Input Text  j_idt116:firstname  Robot
-    Input Text  j_idt116:surname  Framework
-    Click Element  j_idt116:btnAll
-    ${AlertText}=    Get Text  //*[@id='j_idt116:msgs']//ul/li[1]
+    Open Browser  https://www.primefaces.org/showcase/ui/ajax/process.xhtml    chrome
+    Input Text  j_idt303:firstname  Robot
+    Input Text  j_idt303:surname  Framework
+    Click Element  j_idt303:btnAll
+    ${AlertText}=    Get Text  //*[@id='j_idt303:msgs']//ul/li[1]
     Should Be Equal  ${AlertText}    Welcome Robot Framework
 
 Test Implicit Wait Using PF Showcase - Ajax Framework - Status
-    Open Browser  https://www.primefaces.org/showcase/ui/ajax/status.xhtml
-    ${InitialText}=  Get Text  j_idt116
+    Open Browser  https://www.primefaces.org/showcase/ui/ajax/status.xhtml    chrome
+    ${InitialText}=  Get Text  j_idt304_default
     Should Be Equal  ${InitialText}  Status: StandBy
-    Click Element  j_idt123:j_idt124
-    ${PostClickText}=  Get Text  j_idt116
+    Click Element  j_idt311:j_idt312
+    ${PostClickText}=  Get Text  j_idt304_complete
     Should Be Equal  ${PostClickText}  Status: Completed
-    
